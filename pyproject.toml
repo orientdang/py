@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "py-practice"
+version = "0.1.0"
+description = ""
+authors = ["dang-codelink <dang@codelink.io>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+yapf = "^0.31.0"
+pycodestyle = "^2.7.0"
+toml = "^0.10.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
