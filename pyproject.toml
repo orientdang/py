@@ -9,6 +9,9 @@ python = "^3.9"
 yapf = "^0.31.0"
 pycodestyle = "^2.7.0"
 toml = "^0.10.2"
+bs4 = "^0.0.1"
+lxml = "^4.6.3"
+html5lib = "^1.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

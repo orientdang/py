@@ -229,8 +229,67 @@ def get_identity():
     print(id(oj2))
 
 
-sentence = "ASCII cannot represent these: 你好嗎"
-encoded_utf8 = sentence.encode(encoding='utf-8', errors='replace')
-encoded_ascii = sentence.encode(encoding='ascii', errors='replace')
-print(encoded_utf8)
-print(encoded_ascii)
+def clear_terminal():
+    import os
+    import time
+    os.system('ls')
+    time.sleep(2)
+    os.system('clear')
+
+
+def get_hostname():
+    import socket
+    host_name = socket.gethostname()
+    print(host_name)
+
+
+def print_url_content():
+    URL = "google.com"
+    from http.client import HTTPConnection
+    conn = HTTPConnection(URL)
+    conn.request("GET", '/')
+    result = conn.getresponse()
+    content = result.read()
+
+
+def filter_negative_numbers():
+    nums = [34, 1, 0, -23]
+    filterd = list(filter(lambda x: x >= 0, nums))
+    print(filterd)
+
+
+def compute_products():
+    from functools import reduce
+    nums = [
+        10,
+        20,
+        30,
+    ]
+    result = reduce(lambda x, y: x * y, nums)
+    print(result)
+
+
+def make_chunks(lst, num_chunks, s=0):
+    chunk_list = list()
+    len_lst = len(lst)
+    result = [lst[i:i + num_chunks - 1] for i in range(0, len_lst, num_chunks)]
+    for i in range(s, len_lst, num_chunks):
+        start = i
+        end = i + num_chunks
+        chunk = lst[start:end]
+        chunk_list.append(chunk)
+    return chunk_list
+
+
+def three_sum(lst):
+    result = list()
+    for i in range(len(lst)):
+        chunks = make_chunks(lst, 3, i)
+        for chunk in chunks:
+            if sum(chunk) == 0 and len(chunk) == len(set(chunk)) == 3:
+                result.append(chunk)
+    return result
+
+
+x = [1, -6, 4, 2, -1, 2, 0, -2, 0]
+print(three_sum(x))
