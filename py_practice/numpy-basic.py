@@ -50,6 +50,9 @@ def comparision():
     print(less)
     print(less_equal)
 
+    # print x'element whose value is greater than y
+    print(x[greater])
+
 
 def determine_size():
     x = np.array([1, 7, 13, 105, 7, 8])
@@ -89,4 +92,31 @@ def three_by_four():
         print(x)
 
 
-three_by_four()
+def distributed_evenly():
+    arr = np.linspace(5, 50, 10)
+    print(arr)
+
+
+def gen_ran():
+    ranint = np.random.randint(0, 10, 5)
+    ran = np.random.random((3, 3, 3))
+    print(ranint)
+    print(ran)
+
+
+def matrix_diaganol_range():
+    arr = np.diag([1, 2, 3, 4, 5])
+    print(arr)
+
+
+def save_to_binary_file():
+    import os
+    a = np.arange(20)
+    np.save('temp_arra.npy', a)
+    print("Check if 'temp_arra.npy' exists or not?")
+    if os.path.exists('temp_arra.npy'):
+        x2 = np.load('temp_arra.npy')
+        print(np.array_equal(a, x2))
+
+
+save_to_binary_file()
