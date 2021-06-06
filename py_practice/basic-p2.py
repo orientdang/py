@@ -33,5 +33,30 @@ def get_google_top_news():
         print(news.pubDate.text)
         print('*' * 60)
 
+def target_combination():
+    import itertools
+    from functools import partial
 
-get_google_top_news()
+    X = [10, 20, 20, 20]
+    Y = [10, 20, 30, 40]
+    Z = [10, 30, 40, 20]
+    target = 70
+
+    def check_sum_array(N, *nums):
+        if sum(nums) == N:
+            return (True, nums)
+        else:
+            return (False, nums)
+
+    pro = itertools.product(X,Y,Z)
+    func = partial(check_sum_array, target)
+    sums = list(itertools.starmap(func, pro))
+
+    result = set()
+    for s in sums:
+        if s[0] == True:
+          result.add(s[1])
+    pprint(result)
+
+
+target_combination()
