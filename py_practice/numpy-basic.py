@@ -119,4 +119,16 @@ def save_to_binary_file():
         print(np.array_equal(a, x2))
 
 
-save_to_binary_file()
+def random_walk_faster(n=1000):
+    import random
+    from itertools import accumulate
+
+    # Only available from Python 3.6
+    steps = random.choices([-1, +1], k=n)
+    pprint(steps)
+    pprint(list(accumulate(steps)))
+    return [0] + list(accumulate(steps))
+
+
+walk = random_walk_faster(10)
+print(walk)

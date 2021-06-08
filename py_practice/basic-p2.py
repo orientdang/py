@@ -55,8 +55,29 @@ def target_combination():
     result = set()
     for s in sums:
         if s[0] == True:
-          result.add(s[1])
+          result.add(s[1]) 
     pprint(result)
 
+def letter_combinations():
+    from itertools import product
 
-target_combination()
+    string_maps = {
+        "1": "abc",
+        "2": "def",
+        "3": "ghi",
+        "4": "jkl",
+        "5": "mno",
+        "6": "pqrs",
+        "7": "tuv",
+        "8": "wxy",
+        "9": "z"
+    }
+    digit_string = '47'
+    items = list()
+    for digit in digit_string:
+        items.append(string_maps[digit])
+    combinations = product(*items)
+    pprint([c for c in combinations])
+
+
+print(*[3,5])
